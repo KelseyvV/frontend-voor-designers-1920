@@ -32,3 +32,6 @@ Codeer de functionaliteit in HTML, CSS en JavaScript en test verschillende versi
 - Bekijk hier de lijst [User Interface Events](https://developer.mozilla.org/en-US/docs/Web/API/UIEvent) die je in javascript kunt gebruiken.
 - Als je iets wil doen met scrollen, dan kun je het event 'scroll' gebruiken. Misschien kun je ook iets doen met de [Intersection observer](https://pawelgrzybek.com/the-intersection-observer-api-explained/)
 - Als een onderdeel van je pagina in beeld moet verschijnen na een click, dan kun je iets doen met [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView).
+
+
+<img width="898" alt="Schermafbeelding 2020-03-11 om 12 57 08" src="https://user-images.githubusercontent.com/59088506/76414651-09464380-6398-11ea-8eda-49de0013e81d.png">
