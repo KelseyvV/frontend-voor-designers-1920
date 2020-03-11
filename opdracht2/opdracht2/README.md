@@ -34,4 +34,30 @@ Codeer de functionaliteit in HTML, CSS en JavaScript en test verschillende versi
 - Als een onderdeel van je pagina in beeld moet verschijnen na een click, dan kun je iets doen met [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView).
 
 
+OPDRACHT 2
+Ik heb ervoor gekozen om case 2 te maken: 
+- Carousel met vakantiefoto's: Een carousel met meerdere foto's van een vakantie, die je kan bedienen met een button en met de pijltjes op het toetsenbord.
+
+Ik ben begonnen met het maken van een schets. Zie onderstaande afbeelding:
+
 <img width="898" alt="Schermafbeelding 2020-03-11 om 12 57 08" src="https://user-images.githubusercontent.com/59088506/76414651-09464380-6398-11ea-8eda-49de0013e81d.png">
+
+Dit leek mij een leuk idee, ik kom het best wel vaak tegen op andere websites. Het leek mij wel een uitdaging om te maken.
+
+PROCES
+Ik ben begonnen met het invoegen van afbeeldingen en deze naast elkaar te plaatsen. Toen dit was gelukt heb ik snapping toegepast, op deze manier kon ik door de pagina heen scrollen op een manier waardoor het bleef staan: zie onderstaande afbeelding voor het resultaat.
+
+<img width="1397" alt="Schermafbeelding 2020-03-11 om 12 56 48" src="https://user-images.githubusercontent.com/59088506/76414743-35fa5b00-6398-11ea-9454-02a21865a7d5.png">
+
+De pagina wilde ik laten bedienen door pijltjes naar links en rechts maar ook door buttons, zodat je gelijk ziet hoeveel foto's er beschikbaar zijn en dan kun je er gemakkelijk naar navigeren: zie onderstaande afbeelding.
+
+<img width="1398" alt="Schermafbeelding 2020-03-11 om 12 56 58" src="https://user-images.githubusercontent.com/59088506/76414717-2a0e9900-6398-11ea-8478-3d3caba82973.png">
+
+Het was niet moeilijk om de foto's te linken aan het goede rondje maar er moest ook nog iets gebeuren met javascript. Op dit moment heb ik mijn code helemaal verwijdert en ben ik op nieuw begonnen. Ik heb toen van de rondjes radio buttons gemaakt en die gelinkt aan een foto en daarnaast een array gemaakt in mijn javascript. Die array heb ik gelinkt aan de pijltjes, link en rechts zodat je daar ook doorheen kunt klikken. 
+
+Als laatste nog heeft Sanne mij geholpen om met het toetsenbord de foto's te bedienen, hij heeft die code voor mij geschreven. Het zag er simpel uit maar dat was het echter niet, ik wilde nog de functies aan elkaar koppelen zodat het er niet dubbel zou staan maar ik ben er echt nog niet uitgekomen, dus daar ligt mijn verbeterpunt.
+
+Dit is het resultaat geworden.
+<img width="459" alt="Schermafbeelding 2020-03-11 om 12 56 02" src="https://user-images.githubusercontent.com/59088506/76414749-3a267880-6398-11ea-8b34-98055c42027e.png">
+
+Wanneer ik verder zou gaan werken aan deze opdracht zou ik meer mijn geschetste idee gaan uitwerken, dus dat je aan beide zijkanten alvast de foto's ziet maar dan klein en vervaagd.
