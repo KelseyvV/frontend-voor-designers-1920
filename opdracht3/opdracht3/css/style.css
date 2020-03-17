@@ -1,0 +1,149 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    font-family: 'Bellota Text', cursive;
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 15em;
+    width: 25em;
+}
+
+.slider li {
+    list-style: none;
+    position: absolute;
+}
+
+/*afbeeldingen*/
+.slider img {
+    transition: 0.5s;
+    height: 15em;
+    width: 25em;
+    vertical-align: top;
+    box-shadow: 5px 5px 5px #F87DA9;
+}
+
+.slider input {
+    display: none;
+}
+
+/*radio buttons normale stand*/
+.slider label {
+    background-color: #fff;
+    bottom: 5px;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px grey;
+}
+
+/*alle radio buttons*/
+.slider li:nth-child(1) label {
+    left: 9.5em;
+}
+
+.slider li:nth-child(2) label {
+    left: 11em;
+}
+
+.slider li:nth-child(3) label {
+    left: 12.5em;
+}
+
+.slider li:nth-child(4) label {
+    left: 14em;
+}
+
+.slider li:nth-child(5) label {
+    left: 15.5em;
+}
+
+/*foto onzichtbaar maken*/
+.slider img {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*foto koppelen aan radio button*/
+.slider li input:checked ~ img {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/*radio button geselecteerd*/
+.slider li input:checked ~ label {
+    background-color: #F87DA9;
+    border: solid 2px white;
+    transition: 0.1s ease;
+}
+
+/*linker pijl button*/
+.left-trigger {
+    color: whitesmoke;
+    font-size: 40px;
+    transform: translate(0, -0%);
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50px;
+    height: 40px;
+    background-color: #F87DA9;
+    border-radius: 0 40px 40px 0;
+    transition: 0.2s;
+    box-shadow: 2px 2px 2px white;
+}
+
+.left-trigger:hover {
+    background-color: #FFCBD6;
+    color: black;
+    transform: scale(1.1);
+}
+
+/*rechter pijl button*/
+.right-trigger {
+    color: whitesmoke;
+    font-size: 40px;
+    transform: translate(0, -0%);
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50px;
+    height: 40px;
+    background-color: #F87DA9;
+    border-radius: 40px 0 0 40px;
+    transition: 0.2s;
+    box-shadow: 0px 2px 2px white;
+}
+
+.right-trigger:hover {
+    background-color: #FFCBD6;
+    color: black;
+    transform: scale(1.1);
+}
+
+#left,
+#right {
+    user-select: none;
+}
