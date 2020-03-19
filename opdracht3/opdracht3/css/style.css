@@ -1,149 +1,174 @@
 body {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
     background-color: black;
 }
 
 h1 {
     color: white;
-    font-family: 'Bellota Text', cursive;
 }
 
-.slider {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 15em;
-    width: 25em;
+.slider-container {
+    position: relative;
+    width: 20em;
+    height: 29.5em;
+    background-color: #0000ff33;
 }
 
-.slider li {
+ul.slider {
+    position: relative;
+    margin: 0;
     list-style: none;
+    background: #ff000088;
+}
+
+/************/
+/* een film */
+/************/
+ul.slider li {
     position: absolute;
+    left: 0;
+    top: 0;
 }
 
-/*afbeeldingen*/
-.slider img {
-    transition: 0.5s;
-    height: 15em;
-    width: 25em;
-    vertical-align: top;
-    box-shadow: 5px 5px 5px #F87DA9;
-}
-
-.slider input {
+ul.slider input {
     display: none;
 }
 
-/*radio buttons normale stand*/
-.slider label {
-    background-color: #fff;
-    bottom: 5px;
-    cursor: pointer;
-    display: block;
-    height: 10px;
+ul.slider h2 {
     position: absolute;
-    width: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: .25em 0;
+    color: white;
+    background-color: #F87DA9cc;
+    text-align: center;
+    opacity: 0;
+    transition: .5s;
+}
+
+/* titel zichtbaar maken als de radio button geklikt is */
+ul.slider li input:checked ~ h2 {
+    opacity: 1;
     z-index: 10;
+}
+
+/* afbeeldingen */
+ul.slider img {
+    display: block;
+    transition: 0.5s;
+    width: 20em;
+    height: 29.5em;
+    box-shadow: 5px 5px 5px #F87DA9;
+    opacity: 0;
+    transition: .5s;
+}
+
+/* afbeelding zichtbaar maken als de radio button geklikt is */
+ul.slider li input:checked ~ img {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* radio button normale stand */
+.slider-container label {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    bottom: -2em;
+    background-color: #fff;
     border-radius: 50%;
     box-shadow: 0px 2px 2px grey;
+    cursor: pointer;
 }
 
-/*alle radio buttons*/
-.slider li:nth-child(1) label {
-    left: 9.5em;
-}
-
-.slider li:nth-child(2) label {
-    left: 11em;
-}
-
-.slider li:nth-child(3) label {
-    left: 12.5em;
-}
-
-.slider li:nth-child(4) label {
-    left: 14em;
-}
-
-.slider li:nth-child(5) label {
-    left: 15.5em;
-}
-
-/*foto onzichtbaar maken*/
-.slider img {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/*foto koppelen aan radio button*/
-.slider li input:checked ~ img {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-}
-
-/*radio button geselecteerd*/
-.slider li input:checked ~ label {
+/* radio button geselecteerd */
+.slider-container input:checked ~ label {
     background-color: #F87DA9;
     border: solid 2px white;
-    transition: 0.1s ease;
+    transition: 0.2s ease;
+    transform: scale(1.2);
 }
 
-/*linker pijl button*/
-.left-trigger {
+.slider-container li:nth-of-type(1) label {
+    left: 5.75em;
+}
+
+.slider-container li:nth-of-type(2) label {
+    left: 7.25em;
+}
+
+.slider-container li:nth-of-type(3) label {
+    left: 8.75em;
+}
+
+.slider-container li:nth-of-type(4) label {
+    left: 10.25em;
+}
+
+.slider-container li:nth-of-type(5) label {
+    left: 11.75em;
+}
+
+.slider-container li:nth-of-type(6) label {
+    left: 13.35em;
+}
+
+
+/**************/
+/* de buttons */
+/**************/
+button {
+    position: absolute;
+    width: 1.25em;
+    height: 1em;
+    line-height: 1em;
+    top: 13.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
     color: whitesmoke;
-    font-size: 40px;
-    transform: translate(0, -0%);
-    text-align: center;
-    display: flex;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 50px;
-    height: 40px;
     background-color: #F87DA9;
-    border-radius: 0 40px 40px 0;
+    border: none;
+    outline: none;
     transition: 0.2s;
-    box-shadow: 2px 2px 2px white;
-}
-
-.left-trigger:hover {
-    background-color: #FFCBD6;
-    color: black;
-    transform: scale(1.1);
-}
-
-/*rechter pijl button*/
-.right-trigger {
-    color: whitesmoke;
-    font-size: 40px;
-    transform: translate(0, -0%);
-    text-align: center;
-    display: flex;
     cursor: pointer;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 50px;
-    height: 40px;
-    background-color: #F87DA9;
-    border-radius: 40px 0 0 40px;
-    transition: 0.2s;
-    box-shadow: 0px 2px 2px white;
-}
-
-.right-trigger:hover {
-    background-color: #FFCBD6;
-    color: black;
-    transform: scale(1.1);
-}
-
-#left,
-#right {
     user-select: none;
 }
+
+/* linker button */
+button#left {
+    left: 0;
+    border-radius: 0 .5em .5em 0;
+    box-shadow: 2px 2px 2px white;
+    transform-origin: left center;
+}
+
+/* rechter button */
+button#right {
+    right: 0;
+    border-radius: .5em 0 0 .5em;
+    box-shadow: -2px 2px 2px white;
+    transform-origin: right center;
+}
+
+/* button focus en hover */
+button:hover {
+    background-color: #FFCBD6;
+    color: black;
+    transform: scale(1.1);
+}
+
+button#left:focus {
+    box-shadow: 2px 2px 2px #33ccff;
+}
+
+button#right:focus {
+    box-shadow: -2px 2px 2px #33ccff;
+}
+
