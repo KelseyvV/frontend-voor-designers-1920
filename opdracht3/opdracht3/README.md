@@ -30,3 +30,19 @@ Werk daarna je ontwerp uit in HTML, CSS en JavaScript.
 - Met behulp van [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest) of [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) kan een [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) file worden geladen. Daarna kun je de HTML elementen aanmaken, de juiste content koppelen en aan de DOM toevoegen.
 - Hier staat een [tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) voor het laden van JSON data en het aanmaken van HTMl elementen.
 - Bij het laden van externe data kan de server verschillende [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) doorgeven, die kun je gebruiken om feedback te tonen.
+
+
+--------------- LES  1 --------------------
+
+Deze les hebben we de beschrijving voor opdracht 3 gekregen. We zijn deze les begonnen met het stappenplan om gegevens van een andere website op te halen, die van Koop. Op deze manier kan ik de films en titels gebruiken voor mijn eigen website.
+
+Mijn bedoeling is dat ik de code van opdracht 2 nogmaals ga gebruiken alleen vervang ik deze vakantie foto's nu voor film foto's. 
+
+Ik wil proberen om een ander soort carousel te maken. Ik ga proberen om Sanne's voorbeeld 'na te maken'. 
+
+
+--------------- Huiswerk les 2 --------------
+
+Voor les 2 heb ik mijn code samengevoegt, dit heeft Sanne gedaan voor mij. Mijn website ziet er nu als volgt uit:
+
+
