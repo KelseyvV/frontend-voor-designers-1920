@@ -45,4 +45,7 @@ Ik wil proberen om een ander soort carousel te maken. Ik ga proberen om Sanne's 
 
 Voor les 2 heb ik mijn code samengevoegt, dit heeft Sanne gedaan voor mij. Mijn website ziet er nu als volgt uit:
 
+<img width="1001" alt="Schermafbeelding 2020-03-19 om 14 21 53" src="https://user-images.githubusercontent.com/59088506/77071866-06c59880-69ed-11ea-9615-b9ad5a2d43a4.png">
+
+
 
