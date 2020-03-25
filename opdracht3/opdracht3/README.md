@@ -78,6 +78,7 @@ Ik twijfel ook nog of ik radio buttons moet gebruiken, naar mijn idee heeft dat 
 
 
 Dit is het resultaat van deze week:
+<img width="1193" alt="Schermafbeelding 2020-03-25 om 12 23 37" src="https://user-images.githubusercontent.com/59088506/77531623-817e3000-6e93-11ea-9e33-089244361569.png">
 
 
 
