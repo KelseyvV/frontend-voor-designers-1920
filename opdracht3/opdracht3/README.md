@@ -41,11 +41,43 @@ Mijn bedoeling is dat ik de code van opdracht 2 nogmaals ga gebruiken alleen ver
 Ik wil proberen om een ander soort carousel te maken. Ik ga proberen om Sanne's voorbeeld 'na te maken'. 
 
 
---------------- Huiswerk les 2 --------------
+--------------- Huiswerk LES 2 --------------
 
 Voor les 2 heb ik mijn code samengevoegt, dit heeft Sanne gedaan voor mij. Mijn website ziet er nu als volgt uit:
 
 <img width="1001" alt="Schermafbeelding 2020-03-19 om 14 21 53" src="https://user-images.githubusercontent.com/59088506/77071866-06c59880-69ed-11ea-9615-b9ad5a2d43a4.png">
+
+
+--------------- Huiswerk LES 3 --------------
+
+Vorige week heb ik dus mijn code van opdracht 2 samengevoegt aan de API. Deze code wil ik verder uitbreiden door er een ronde 3d caroussel van te maken. Ik heb op internet gezocht hoe dit gedaan werd en kwam allerlei verschillende manieren tegen met CSS, JavaScript en Jquery. Het was vrij onduidelijk dus ik heb nogmaals hulp gevraagd aan Sanne. Sanne heeft mij toen zijn caroussel gestuurd en op deze manier kon ik dit samenvoegen met mijn code.
+
+Sanne's code bestaat uit 12 items, ik zou mijn films kunnen verdubbelen 2x 6 films maar ik heb er toch voor gekozen om dit bij 6 te laten. 
+
+Ik heb deze code nu gekoppeld met de caroussel code maar mijn buttons werken nog niet helemaal, dat gebeurd in dit stukje code:
+
+function beweegSlider(richting) {
+    var radio_length = radio_array.length;
+
+    if (richting == "naarLinks") {
+        positieSlider--;
+        if (positieSlider < 0) {
+            draaiCarrousel("naarLinks");
+        }
+    } else if (richting == "naarRechts") {
+        positieSlider++;
+        if (positieSlider > radio_length - 1) {
+            draaiCarrousel("naarRechts");
+        }
+    }
+    radio_array[positieSlider].checked = true;
+}
+
+Ik heb hier al draaiCarrousel geplaatst maar ik weet niet zo goed wat het if statement moet zijn.
+Ik twijfel ook nog of ik radio buttons moet gebruiken, naar mijn idee heeft dat geen toegevoegde waarde bij dit caroussel.
+
+
+Dit is het resultaat van deze week:
 
 
 
