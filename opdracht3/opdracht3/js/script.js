@@ -2,123 +2,6 @@
 /*eslint-env browser*/
 /*eslint 'no-console':0*/
 
-//--------------------------mijn oude code ------------------------->>>
-
-////code opdracht 3
-//
-//const header = document.querySelector('header');
-//const section = document.querySelector('section');
-//
-//let requestURL = 'https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json';
-//let request = new XMLHttpRequest();
-//
-//request.open('GET', requestURL);
-//
-//request.responseType = 'json';
-//
-//request.send();
-//
-//request.onload = function () {
-//    const movies = request.response;
-//    //    populateHeader(movies);
-//    //    showHeroes(movies);
-//    console.log(movies);
-//
-//    for (let i = 0; i < movies.length; i++) {
-//        let newLi = document.createElement('li');
-//        let newImg = document.createElement('img');
-//        let newHeader = document.createElement('h2');
-//
-//        let newInput = document.createElement('input');
-//        let newLabel = document.createElement('label');
-//
-//        newImg.src = movies[i].cover;
-//        newImg.setAttribute("alt", movies[i].title);
-//        newHeader.innerHTML = movies[i].title;
-//
-//        newInput.setAttribute('type', 'radio');
-//        newInput.setAttribute('id', 'slide' + (i + 1));
-//        newInput.setAttribute('class', 'radio');
-//        newInput.setAttribute('name', 'slide');
-//
-//        newLabel.setAttribute('for', 'slide' + (i + 1));
-//
-//        newLi.appendChild(newHeader);
-//        newLi.appendChild(newInput);
-//        newLi.appendChild(newImg);
-//        document.body.querySelector("ul").appendChild(newLi);
-//
-//    }
-//
-//}
-//
-//
-////code opdracht 2
-//var right = document.getElementById("right");
-//var left = document.getElementById("left");
-//
-////afbeeldingen ophalen
-//var slide1 = document.getElementById("slide1");
-//var slide2 = document.getElementById("slide2");
-//var slide3 = document.getElementById("slide3");
-//var slide4 = document.getElementById("slide4");
-//var slide5 = document.getElementById("slide5");
-//
-////array afbeeldingen
-//var radio_array = Array(slide1, slide2, slide3, slide4, slide5);
-//
-//var radio_length = radio_array.length;
-//
-//var i = 0;
-//
-//
-//
-//left.onclick = () => {
-//    i--;
-//    if (i < 0) {
-//        i = radio_length - 1;
-//    }
-//    radio_array[i].checked = true;
-//};
-//
-//
-//right.onclick = () => {
-//    i++;
-//    if (i > radio_length - 1) {
-//        i = 0;
-//    }
-//    radio_array[i].checked = true;
-//};
-//
-//
-//
-//function arrowLeft() {
-//    i--;
-//    if (i < 0) {
-//        i = radio_length - 1;
-//    }
-//    radio_array[i].checked = true;
-//}
-//
-//function arrowRight() {
-//    i++;
-//    if (i > radio_length - 1) {
-//        i = 0;
-//    }
-//    radio_array[i].checked = true;
-//}
-//
-//
-//function toetsenbord(event) {
-//    if (event.key == "ArrowRight") {
-//        arrowRight();
-//    } else if (event.key == "ArrowLeft") {
-//        arrowLeft();
-//    }
-//}
-//
-//window.addEventListener("keydown", toetsenbord);
-
 
 
 
@@ -133,7 +16,7 @@ var radio_array = new Array();
 /* begint bij 0 omdat een array bij 0 begint */
 var positieSlider;
 
-/* maak een verbinding met de server en vraag de info van alle films op */
+/* maak een verbinding met de server (API) en vraag de info van alle films op */
 let requestURL = 'https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json';
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
@@ -235,12 +118,12 @@ function beweegSlider(richting) {
     if (richting == "naarLinks") {
         positieSlider--;
         if (positieSlider < 0) {
-            positieSlider = radio_length - 1;
+            draaiCarrousel("naarLinks");
         }
     } else if (richting == "naarRechts") {
         positieSlider++;
         if (positieSlider > radio_length - 1) {
-            positieSlider = 0;
+            draaiCarrousel("naarRechts");
         }
     }
     radio_array[positieSlider].checked = true;
@@ -250,41 +133,73 @@ function beweegSlider(richting) {
 
 
 
-/* niet meer nodig opgenomen in de functie beweegSlider */
-// function arrowLeft() {
-//     i--;
-//     if (i < 0) {
-//         i = radio_length - 1;
-//     }
-//     radio_array[i].checked = true;
-// }
 
-// function arrowRight() {
-//     i++;
-//     if (i > radio_length - 1) {
-//         i = 0;
-//     }
-//     radio_array[i].checked = true;
-// }
 
-// function toetsenbord(event) {
-// }
 
-/* niet meer nodig opgenomen in de functie beweegSlider */
-// left.onclick = () => {
-// };
-// right.onclick = () => {
-// };
 
-//afbeeldingen ophalen
-/* dit is niet meer nodig - dit wordt direct gedaan in de functie vulSliderMetFilmsEnBolletjes bij het aanmaken van de films */
-// var slide1 = document.getElementById("slide1");
-// var slide2 = document.getElementById("slide2");
-// var slide3 = document.getElementById("slide3");
-// var slide4 = document.getElementById("slide4");
-// var slide5 = document.getElementById("slide5");
-// var slide5 = document.getElementById("slide6");
+/* ik denk dat je dit al kent */
+/* ik laat het window (de browser) luisteren naar toetsaanslagen */
+/* bij elke toetsaanslag wordt de actie actieNaToetsaanslag uitgevoerd */
+window.addEventListener("keydown", actieNaToetsaanslag);
 
-//array afbeeldingen
-/* dit is niet meer nodig - dit wordt direct gedaan in de functie vulSliderMetFilmsEnBolletjes bij het aanmaken van de films */
-// var radio_array = Array(slide1, slide2, slide3, slide4, slide5, slide6);
+/* ik denk dat je dit ook al kent */
+function actieNaToetsaanslag(event) {
+    /* een switch is een uitgebreide if, else is, else if... */
+    /* het event bevat alle data die de browser over de toestaanslag heeft */
+    /* het kan altijd interessant zijn, om het event even te console.log-gen */
+    /* dan kun je zien welke info allemaal beschikbaar is */
+    /* een van de brokjes info in het event is key */
+    /* dat is de leesbare waarde van de toets waarop gedrukt is */
+    switch (event.key) {
+        case "ArrowLeft":
+            /* als de event.key ArrowLeft is, doen we dit */
+            draaiCarrousel("naarLinks");
+            break;
+        case "ArrowRight":
+            /* als de event.key ArrowRight is, doen we dit */
+            draaiCarrousel("naarRechts");
+            break;
+    }
+}
+
+function draaiCarrousel(richting) {
+    /* we zoeken de carrousel op en stoppen die in een variabele */
+    var deCarrousel = document.querySelector(".slider");
+    /* we maken een variabele aan om de huidige hoek van de carrousel in op te slaan */
+    var huidigeCarrouselHoek;
+    /* we maken een variabele aan om de nieuwe hoek van de carrousel in op te slaan */
+    var nieuweCarrouselHoek;
+
+    /* de HUIDIGE hoek van de carrousel bepalen */
+    /* met de volgende regel vraag je eerst aan de css om alle properties van de carrousel te geven */
+    /* om vervolgens uit dat lijstje de waarde van --carrouselHoek op te vragen */
+    /* de eerste keer is dat de initiële waarde --> 0deg */
+    huidigeCarrouselHoek = getComputedStyle(deCarrousel).getPropertyValue("--carrouselHoek");
+
+    /* met 0deg kun je niet rekenen */
+    /* we moeten "deg" van de waarde afsnijden om zo alleen de getallen over te houden */
+    /* dat kan met substring */
+    huidigeCarrouselHoek = huidigeCarrouselHoek.substring(0, huidigeCarrouselHoek.length - 3);
+
+    /* nu hebben we alleen de getallen over */
+    /* js ziet de die getallen nog als een string --> een tekst */
+    /* daar kun je nog steeds niet mee rekenen */
+    /* met parseInt kun je van een tekst die uit getallen bestaat een echt getal maken */
+    huidigeCarrouselHoek = parseInt(huidigeCarrouselHoek);
+
+    /* de NIEUWE hoek van de carrousel bepalen */
+    /* als de carrousel naar links moet draaien, trekken we 30 graden van de carrouselHoek af */
+    if (richting == "naarLinks") {
+        nieuweCarrouselHoek = huidigeCarrouselHoek - 60;
+    }
+    /* als de carrousel naar rechts moet draaien, tellen we 30 graden bij de carrouselHoek op */
+    else if (richting == "naarRechts") {
+        nieuweCarrouselHoek = huidigeCarrouselHoek + 60;
+    }
+
+    /* vervolgens plakken we de letters "deg" weer achter de nieuwe waarde*/
+    nieuweCarrouselHoek = nieuweCarrouselHoek + "deg";
+
+    /* en als laatste schrijven we de nieuwe hoek van de carrousel terug naar de css */
+    deCarrousel.style.setProperty("--carrouselHoek", nieuweCarrouselHoek);
+}
