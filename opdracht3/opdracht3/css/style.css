@@ -1,123 +1,157 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* als de carrousel uit de body steekt, dan worden de uitstekende delen niet getoond */
     background-color: black;
 }
 
 h1 {
     color: white;
+    font-family: serif;
+    text-align: center;
+    font-size: 2em;
 }
 
-.slider-container {
-    position: relative;
-    width: 20em;
-    height: 29.5em;
-    background-color: #0000ff33;
-}
-
-ul.slider {
-    position: relative;
-    margin: 0;
-    list-style: none;
-    background: #ff000088;
-}
-
-/************/
-/* een film */
-/************/
-ul.slider li {
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-ul.slider input {
-    display: none;
-}
-
-ul.slider h2 {
+/*film titels*/
+h2 {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
-    margin: 0;
-    padding: .25em 0;
-    color: white;
+    top: 12;
     background-color: #F87DA9cc;
+    font-size: 1em;
     text-align: center;
-    opacity: 0;
-    transition: .5s;
 }
 
-/* titel zichtbaar maken als de radio button geklikt is */
-ul.slider li input:checked ~ h2 {
-    opacity: 1;
-    z-index: 10;
+
+.slider-container {
+    position: relative;
+    background-color: #0000ff33;
+    align-items: center;
+
+    /* dit heb ik met trial-and-error bepaald */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* tot zover niks geks - denk ik */
+
+    /* dit is het verdwijnpunt van het perspectief */
+    /* https://nl.wikipedia.org/wiki/Lijnperspectief */
+    /* een kleiner getal betekent dat het verdwijnpunt dichterbij ligt */
+    /* dat betekent meer perspectief */
+    /* een groter getal betekent dat het verdwijnpunt verderweg ligt */
+    /* dat betekent minder perspectief */
+    /* daar kun je mee spelen tot je het mooi vindt */
+    perspective: 90em;
+
+    /* hiermee geef je aan waar het verdwijntpunt in de ruimte ligt */
+    /* de default is center center */
+    /* dat betekent dat het verdwijnpunt recht naar achter ligt */
+    /* center -10em betekent: 
+      - dat het verdwijntpunt horizontaal in het midden ligt
+      - dat het verdwijntpunt verticaal 10em naar boven ligt */
+    perspective-origin: center -15em;
+
+    /* hiermee geef je aan dat de ul een echte 3D-omgeving is */
+    /* als je dit uitzet zul je zien dat de stapeling van elementen niet goed gaat */
+    transform-style: preserve-3d;
+
+    /* dit is het aantal graden dat de carrousel gedraaid is */
+    /* die stop ik in een css-variabele */
+    /* de carrousel begint op 0 graden - geen draaiing */
+    /* deze hoek gaan we met js veranderen */
+    /* deze hoek gebruiken we daarnaast zo om de draaiing van de items te berekenen */
+    --carrouselHoek: 0deg;
+
 }
 
-/* afbeeldingen */
-ul.slider img {
-    display: block;
-    transition: 0.5s;
-    width: 20em;
-    height: 29.5em;
+
+img {
+    width: 12em;
+    height: auto;
     box-shadow: 5px 5px 5px #F87DA9;
-    opacity: 0;
-    transition: .5s;
 }
 
-/* afbeelding zichtbaar maken als de radio button geklikt is */
-ul.slider li input:checked ~ img {
-    opacity: 1;
-    z-index: 10;
-}
+.slider li {
+    width: 8em;
 
-/* radio button normale stand */
-.slider-container label {
-    box-sizing: border-box;
+    /* de li's in het midden van de carrousel zetten */
     position: absolute;
-    display: block;
-    width: 1em;
-    height: 1em;
-    bottom: -2em;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0px 2px 2px grey;
-    cursor: pointer;
+    /* 50% in de helft van de eigen breedte */
+    left: calc(50% - 4em);
+    top: 4.5em;
+
+    /* een li doet er .5s over om van de ene positie naar de andere te bewegen */
+    transition: .5s;
+    /* ik vond het leuk om de li's een beetje te laten "overshooten" */
+    /* je kunt dit ook veranderen --> bijv in ease-in of ease-out */
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
-/* radio button geselecteerd */
-.slider-container input:checked ~ label {
-    background-color: #F87DA9;
-    border: solid 2px white;
-    transition: 0.2s ease;
-    transform: scale(1.2);
+/* hiermee zorg ik ervoor dat de li's om de drie dezelfde kleur hebben */
+/* dat heb ik even gedaan zodat je goed kunt zien wat er gebeurt als er li's op elkaar liggen */
+.slider li {
+    background: #F87DA9;
 }
 
-.slider-container li:nth-of-type(1) label {
-    left: 5.75em;
+
+
+/* this is where the magic happens */
+.slider li:nth-of-type(1) {
+    /* de li's worden getransformd t.o.v. het midden van de carousel */
+    /* nb. de volgorde van de transforms doet er toe */
+    transform:
+        /* dit is de eerste li - die staat midden voor */
+        /* dat is niet zo spannend --> uitleg bij de tweede li */
+        rotatey(calc(0deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-0deg - var(--carrouselHoek)));
 }
 
-.slider-container li:nth-of-type(2) label {
-    left: 7.25em;
+.slider li:nth-of-type(2) {
+    transform:
+        /* de li wordt eerst 30 graden om zijn y-as gedraaid */
+        /* 30 graden omdat 360 graden / 12 items = 30 graden */
+        /* maar dan zijn we er nog niet */
+        /* de initiële stand is 30 graden, maar dat moet veranderen als de carousel draait */
+        /* daarom wordt de carrouselHoek er bij opgeteld */
+        /* om te beginnen is die 0, maar dat gaan we met JS aanpassen */
+        /* als de carrouselHoek verandert, verandert de hoek van de li dus mee */
+        rotatey(calc(60deg + var(--carrouselHoek)))
+        /* vervolgens wordt de li 21em in de z-richting bewogen */
+        /* maar dat dus vanaf de 30 graden die de li gedraaid is */
+        /* de 21em heb ik uitgerekend */
+        /* de omtrek van een cirkel is 2πr - waarbij r de straal van de cirkel is - en dat is de waarde die we nodig hebben */
+        /* de omtrek is: 12 x debreedteVanDeLi's + 12 x hetGatTussenDeLi's */
+        /* de omtrek is: 12 x 8em + 12 x 3em = 132em */
+        /* de straal (r) is: 132em / 2π = 21em */
+        translatez(21em)
+        /* de li zou nu naar buiten wijzen - in de 30 graden richting */
+        /* om dat ongedaan te maken, moeten we de li hetzelfde aantal graden terugdraaien */
+        /* maak de hoek maar eens 0deg en kijk wat er gebeurt */
+        rotatey(calc(-60deg - var(--carrouselHoek)));
 }
 
-.slider-container li:nth-of-type(3) label {
-    left: 8.75em;
+.slider li:nth-of-type(3) {
+    /* de volgende li's zijn gelijk aan de vorige li */
+    /* de hoek is alleen steeds 30 graden meer */
+    /* op die manier is de standaard positie steeds 30 graden verder */
+    transform:
+        rotatey(calc(120deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-120deg - var(--carrouselHoek)));
 }
 
-.slider-container li:nth-of-type(4) label {
-    left: 10.25em;
+.slider li:nth-of-type(4) {
+    transform:
+        rotatey(calc(180deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-180deg - var(--carrouselHoek)));
 }
 
-.slider-container li:nth-of-type(5) label {
-    left: 11.75em;
+.slider li:nth-of-type(5) {
+    transform:
+        rotatey(calc(240deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-240deg - var(--carrouselHoek)));
 }
 
-.slider-container li:nth-of-type(6) label {
-    left: 13.35em;
+.slider li:nth-of-type(6) {
+    transform:
+        rotatey(calc(300deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-300deg - var(--carrouselHoek)));
 }
+
+
 
 
 /**************/
@@ -144,6 +178,7 @@ button {
 /* linker button */
 button#left {
     left: 0;
+
     border-radius: 0 .5em .5em 0;
     box-shadow: 2px 2px 2px white;
     transform-origin: left center;
@@ -152,6 +187,7 @@ button#left {
 /* rechter button */
 button#right {
     right: 0;
+
     border-radius: .5em 0 0 .5em;
     box-shadow: -2px 2px 2px white;
     transform-origin: right center;
