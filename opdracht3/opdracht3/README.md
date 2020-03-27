@@ -50,7 +50,14 @@ Voor les 2 heb ik mijn code samengevoegt, dit heeft Sanne gedaan voor mij. Mijn 
 
 --------------- Huiswerk LES 3 --------------
 
-Vorige week heb ik dus mijn code van opdracht 2 samengevoegt aan de API. Deze code wil ik verder uitbreiden door er een ronde 3d caroussel van te maken. Ik heb op internet gezocht hoe dit gedaan werd en kwam allerlei verschillende manieren tegen met CSS, JavaScript en Jquery. Het was vrij onduidelijk dus ik heb nogmaals hulp gevraagd aan Sanne. Sanne heeft mij toen zijn caroussel gestuurd en op deze manier kon ik dit samenvoegen met mijn code.
+Vorige week heb ik dus mijn code van opdracht 2 samengevoegt aan de API. Deze code wil ik verder uitbreiden door er een ronde 3d caroussel van te maken. 
+
+
+![IMG_9896](https://user-images.githubusercontent.com/59088506/77753469-d2c02800-7029-11ea-80db-580121fe3198.jpg)
+
+
+
+Ik heb op internet gezocht hoe dit gedaan werd en kwam allerlei verschillende manieren tegen met CSS, JavaScript en Jquery. Het was vrij onduidelijk dus ik heb nogmaals hulp gevraagd aan Sanne. Sanne heeft mij toen zijn caroussel gestuurd en op deze manier kon ik dit samenvoegen met mijn code.
 
 Sanne's code bestaat uit 12 items, ik zou mijn films kunnen verdubbelen 2x 6 films maar ik heb er toch voor gekozen om dit bij 6 te laten. 
 
