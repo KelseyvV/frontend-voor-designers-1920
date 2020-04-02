@@ -89,3 +89,15 @@ Dit is het resultaat van deze week:
 
 
 
+
+
+--------------- Huiswerk LES 4 --------------
+
+Voor deze week had ik weinig inspiratie. Tot nu toe heb ik al bereikt wat ik wou bereiken voor opdracht 3. Toen heb ik Nicole gesproken en die had iets leuks gemaakt, namelijk dat wanneer je over een film hovert dat je dan details te zien zou krijgen. 
+
+Dit ziet er als volgt uit:
+
+
+Ze heeft haar code met mij gedeeld en die heb ik geprobeerd eigen te maken. Nog niet gelukt helaas. Dus ik heb nu niks om te laten zien eigenlijk...
+
+Hier ga ik mij komende week nog mee bezig houden!
