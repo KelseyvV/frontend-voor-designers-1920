@@ -1,3 +1,6 @@
+Dit is de link naar mijn website:
+https://kelseyvv.github.io/frontend-voor-designers-1920/opdracht3/opdracht3/index.html
+
 # frontend voor designers - opdracht 3: Een interactie uitwerken met externe data
 
 Voor deze opdracht ga je een functionaliteit ontwerpen met externe data. De data is JSON die met een [REST API](https://developer.mozilla.org/en-US/docs/Glossary/REST) van een externe bron wordt ingeladen met Javascript.  Als de data geladen is moeten gebruikers je ontwerp op verschillende manieren kunnen bedienen. Verschillende states zijn vormgeven en worden op het juiste moment getoond.
@@ -106,3 +109,6 @@ Hier ga ik mij komende week nog mee bezig houden!
 Ik heb wel de radio buttons weggehaalt. Deze waren overbodig. 
 Zo ziet mijn website er nu uit:
 <img width="1200" alt="Schermafbeelding 2020-04-03 om 10 56 33" src="https://user-images.githubusercontent.com/59088506/78342617-d576cc00-7599-11ea-936d-9b90ed22e321.png">
+
+Dit is de link naar mijn website:
+https://kelseyvv.github.io/frontend-voor-designers-1920/opdracht3/opdracht3/index.html
