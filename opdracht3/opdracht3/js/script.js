@@ -46,20 +46,19 @@ function vulSliderMetFilmsEnBolletjes(movies) {
         let newInput = document.createElement('input');
         let newLabel = document.createElement('label');
 
+
+
+
         /* vul de attributen met de info van de film van de server */
         newImg.src = movies[i].cover;
         newImg.setAttribute("alt", movies[i].title);
         newHeader.innerHTML = movies[i].title;
-
-        newInput.setAttribute('type', 'radio');
         newInput.setAttribute('id', 'slide' + (i + 1));
-        newInput.setAttribute('class', 'radio');
         newInput.setAttribute('name', 'slide');
-
         newLabel.setAttribute('for', 'slide' + (i + 1));
 
         /* voeg de elementen toe aan de li - de volgorde doet er toe */
-        newLi.appendChild(newInput);
+        //        newLi.appendChild(newInput);
         newLi.appendChild(newHeader);
         newLi.appendChild(newLabel);
         newLi.appendChild(newImg);
@@ -116,17 +115,17 @@ function beweegSlider(richting) {
     var radio_length = radio_array.length;
 
     if (richting == "naarLinks") {
-        positieSlider--;
-        if (positieSlider < 0) {
-            draaiCarrousel("naarLinks");
-        }
+        // positieSlider--;
+        // if (positieSlider < 0) {
+        draaiCarrousel("naarLinks");
+        // }
     } else if (richting == "naarRechts") {
-        positieSlider++;
-        if (positieSlider > radio_length - 1) {
-            draaiCarrousel("naarRechts");
-        }
+        // positieSlider++;
+        // if (positieSlider > radio_length - 1) {
+        draaiCarrousel("naarRechts");
+        // }
     }
-    radio_array[positieSlider].checked = true;
+    // radio_array[positieSlider].checked = true;
 }
 
 
