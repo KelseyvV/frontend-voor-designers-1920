@@ -1,3 +1,7 @@
+/***************/
+/*   Algemeen  */
+/***************/
+
 body {
     /* als de carrousel uit de body steekt, dan worden de uitstekende delen niet getoond */
     background-color: black;
@@ -10,7 +14,11 @@ h1 {
     font-size: 2em;
 }
 
-/*film titels*/
+
+
+/***************/
+/* Film titels */
+/***************/
 h2 {
     position: absolute;
     left: 0;
@@ -22,6 +30,11 @@ h2 {
 }
 
 
+
+
+/***************************/
+/* Slider, Bron: Sanne */
+/***************************/
 .slider-container {
     position: relative;
     background-color: #0000ff33;
@@ -106,16 +119,16 @@ img {
 
 .slider li:nth-of-type(2) {
     transform:
-        /* de li wordt eerst 30 graden om zijn y-as gedraaid */
-        /* 30 graden omdat 360 graden / 12 items = 30 graden */
+        /* de li wordt eerst 60 graden om zijn y-as gedraaid */
+        /* 60 graden omdat 360 graden / 6 items = 60 graden */
         /* maar dan zijn we er nog niet */
-        /* de initiële stand is 30 graden, maar dat moet veranderen als de carousel draait */
+        /* de initiële stand is 60 graden, maar dat moet veranderen als de carousel draait */
         /* daarom wordt de carrouselHoek er bij opgeteld */
         /* om te beginnen is die 0, maar dat gaan we met JS aanpassen */
         /* als de carrouselHoek verandert, verandert de hoek van de li dus mee */
         rotatey(calc(60deg + var(--carrouselHoek)))
         /* vervolgens wordt de li 21em in de z-richting bewogen */
-        /* maar dat dus vanaf de 30 graden die de li gedraaid is */
+        /* maar dat dus vanaf de 60 graden die de li gedraaid is */
         /* de 21em heb ik uitgerekend */
         /* de omtrek van een cirkel is 2πr - waarbij r de straal van de cirkel is - en dat is de waarde die we nodig hebben */
         /* de omtrek is: 12 x debreedteVanDeLi's + 12 x hetGatTussenDeLi's */
@@ -130,7 +143,7 @@ img {
 
 .slider li:nth-of-type(3) {
     /* de volgende li's zijn gelijk aan de vorige li */
-    /* de hoek is alleen steeds 30 graden meer */
+    /* de hoek is alleen steeds 60 graden meer */
     /* op die manier is de standaard positie steeds 30 graden verder */
     transform:
         rotatey(calc(120deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-120deg - var(--carrouselHoek)));
@@ -150,6 +163,9 @@ img {
     transform:
         rotatey(calc(300deg + var(--carrouselHoek))) translatez(21em) rotatey(calc(-300deg - var(--carrouselHoek)));
 }
+
+
+
 
 
 
@@ -175,7 +191,9 @@ button {
     user-select: none;
 }
 
+/**************/
 /* linker button */
+/**************/
 button#left {
     left: 0;
 
@@ -184,7 +202,9 @@ button#left {
     transform-origin: left center;
 }
 
+/**************/
 /* rechter button */
+/**************/
 button#right {
     right: 0;
 
@@ -193,7 +213,9 @@ button#right {
     transform-origin: right center;
 }
 
-/* button focus en hover */
+/**************/
+/* button focus & hover */
+/**************/
 button:hover {
     background-color: #FFCBD6;
     color: black;
@@ -208,3 +230,27 @@ button#right:focus {
     box-shadow: -2px 2px 2px #33ccff;
 }
 
+
+
+
+#detail {
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    top: 0;
+    left: 0;
+    padding: inherit;
+
+    background: #FFA0A0A0;
+    background-clip: content-box;
+
+    opacity: 0;
+
+    transition: .5s;
+}
+
+
+div#detail:hover {
+    opacity: 4;
+    text-align: center;
+}
