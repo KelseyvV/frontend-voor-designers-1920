@@ -96,7 +96,8 @@ Dit is het resultaat van deze week:
 Voor deze week had ik weinig inspiratie. Tot nu toe heb ik al bereikt wat ik wou bereiken voor opdracht 3. Toen heb ik Nicole gesproken en die had iets leuks gemaakt, namelijk dat wanneer je over een film hovert dat je dan details te zien zou krijgen. 
 
 Dit ziet er als volgt uit:
-
+![IMG_9993](https://user-images.githubusercontent.com/59088506/78343002-7d8c9500-759a-11ea-9fbf-5b28c747998b.jpg)
+![IMG_9992](https://user-images.githubusercontent.com/59088506/78343015-82e9df80-759a-11ea-9059-ae09d5be824e.jpg)
 
 Ze heeft haar code met mij gedeeld en die heb ik geprobeerd eigen te maken. Nog niet gelukt helaas. Dus ik heb nu niks om te laten zien eigenlijk...
 
