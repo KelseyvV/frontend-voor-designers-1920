@@ -101,3 +101,7 @@ Dit ziet er als volgt uit:
 Ze heeft haar code met mij gedeeld en die heb ik geprobeerd eigen te maken. Nog niet gelukt helaas. Dus ik heb nu niks om te laten zien eigenlijk...
 
 Hier ga ik mij komende week nog mee bezig houden!
+
+Ik heb wel de radio buttons weggehaalt. Deze waren overbodig. 
+Zo ziet mijn website er nu uit:
+<img width="1200" alt="Schermafbeelding 2020-04-03 om 10 56 33" src="https://user-images.githubusercontent.com/59088506/78342617-d576cc00-7599-11ea-936d-9b90ed22e321.png">
