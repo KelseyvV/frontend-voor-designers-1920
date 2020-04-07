@@ -5,6 +5,13 @@
 body {
     /* als de carrousel uit de body steekt, dan worden de uitstekende delen niet getoond */
     background-color: black;
+
+
+    /* DIT IS NIEUW */
+    /* om het buitenste randje weg te halen */
+    margin: 0;
+    /* zodat je niet kunt naar rechts kunt scrollen als de carrousel uitsteekt */
+    overflow: hidden;
 }
 
 h1 {
@@ -23,19 +30,27 @@ h2 {
     position: absolute;
     left: 0;
     right: 0;
-    top: 12;
+    top: 0;
     background-color: #F87DA9cc;
     font-size: 1em;
     text-align: center;
 }
 
 
+/* DIT IS NIEUW */
+.slider-container {
+    position: relative;
+}
+
 
 
 /***************************/
 /* Slider, Bron: Sanne */
 /***************************/
-.slider-container {
+
+/* DIT IS ANDERS --> was .slider-container */
+
+.slider {
     position: relative;
     background-color: #0000ff33;
     align-items: center;
@@ -165,11 +180,6 @@ img {
 }
 
 
-
-
-
-
-
 /**************/
 /* de buttons */
 /**************/
@@ -189,6 +199,11 @@ button {
     transition: 0.2s;
     cursor: pointer;
     user-select: none;
+
+
+    /* DIT IS NIEUW */
+    /* zodat de buttons boven de film blijven liggen als het scherm kleiner wordt */
+    transform: translateZ(100em);
 }
 
 /**************/
@@ -233,24 +248,20 @@ button#right:focus {
 
 /* Bron: Nicole */
 
-#detail {
+p {
     position: absolute;
-    width: 100%;
-    height: 95%;
+    width: 12em;
     top: 0;
     left: 0;
-    padding: inherit;
-
     background: #FFA0A0A0;
-    background-clip: content-box;
-
     opacity: 0;
-
     transition: .5s;
+    padding: 7.8em 0em;
 }
 
 
-div#detail:hover {
+p:hover {
     opacity: 4;
     text-align: center;
 }
+
