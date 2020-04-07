@@ -43,6 +43,14 @@ function vulSliderMetFilmsEnBolletjes(movies) {
         let newImg = document.createElement('img');
         let newHeader = document.createElement('h2');
 
+
+        let releaseText = document.createElement("p");
+        releaseText.setAttribute("id", "releaseText");
+        let releaseDate = document.createElement("date");
+        let genre = document.createElement("p");
+
+
+
         let newInput = document.createElement('input');
         let newLabel = document.createElement('label');
 
@@ -57,11 +65,22 @@ function vulSliderMetFilmsEnBolletjes(movies) {
         newInput.setAttribute('name', 'slide');
         newLabel.setAttribute('for', 'slide' + (i + 1));
 
+
+        releaseDate.innerHTML = movies[i].release_date;
+        releaseText.innerHTML = 'Release Date: ';
+        releaseText.appendChild(releaseDate);
+        genre.innerHTML = 'Genre: ' + movies[i].genres;
+
+
+
         /* voeg de elementen toe aan de li - de volgorde doet er toe */
-        //        newLi.appendChild(newInput);
         newLi.appendChild(newHeader);
         newLi.appendChild(newLabel);
         newLi.appendChild(newImg);
+        newLi.appendChild(releaseText);
+        newLi.appendChild(genre);
+
+
         /* voeg de li toe aan de ul (de slider) */
         deSlider.appendChild(newLi);
 
@@ -133,35 +152,8 @@ function beweegSlider(richting) {
 
 
 
-
-
-
-/* ik denk dat je dit al kent */
-/* ik laat het window (de browser) luisteren naar toetsaanslagen */
-/* bij elke toetsaanslag wordt de actie actieNaToetsaanslag uitgevoerd */
-window.addEventListener("keydown", actieNaToetsaanslag);
-
-/* ik denk dat je dit ook al kent */
-function actieNaToetsaanslag(event) {
-    /* een switch is een uitgebreide if, else is, else if... */
-    /* het event bevat alle data die de browser over de toestaanslag heeft */
-    /* het kan altijd interessant zijn, om het event even te console.log-gen */
-    /* dan kun je zien welke info allemaal beschikbaar is */
-    /* een van de brokjes info in het event is key */
-    /* dat is de leesbare waarde van de toets waarop gedrukt is */
-    switch (event.key) {
-        case "ArrowLeft":
-            /* als de event.key ArrowLeft is, doen we dit */
-            draaiCarrousel("naarLinks");
-            break;
-        case "ArrowRight":
-            /* als de event.key ArrowRight is, doen we dit */
-            draaiCarrousel("naarRechts");
-            break;
-    }
-}
-
 function draaiCarrousel(richting) {
+    console.log(richting);
     /* we zoeken de carrousel op en stoppen die in een variabele */
     var deCarrousel = document.querySelector(".slider");
     /* we maken een variabele aan om de huidige hoek van de carrousel in op te slaan */
