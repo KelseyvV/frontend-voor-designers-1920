@@ -38,62 +38,65 @@ request.onload = function () {
 
 function vulSliderMetFilmsEnBolletjes(movies) {
     for (let i = 0; i < movies.length; i++) {
+
+        /* DE BASICS AANMAKEN EN AAN DE FILM TOEVOEGEN */
         /* maak de html elementen voor een film aan */
         let newLi = document.createElement('li');
+
         let newImg = document.createElement('img');
         let newHeader = document.createElement('h2');
-
-
-        let releaseText = document.createElement("p");
-        releaseText.setAttribute("id", "releaseText");
-        let releaseDate = document.createElement("date");
-        let genre = document.createElement("p");
-
-
-
-        let newInput = document.createElement('input');
-        let newLabel = document.createElement('label');
-
-
-
 
         /* vul de attributen met de info van de film van de server */
         newImg.src = movies[i].cover;
         newImg.setAttribute("alt", movies[i].title);
         newHeader.innerHTML = movies[i].title;
-        newInput.setAttribute('id', 'slide' + (i + 1));
-        newInput.setAttribute('name', 'slide');
-        newLabel.setAttribute('for', 'slide' + (i + 1));
-
-
-        releaseDate.innerHTML = movies[i].release_date;
-        releaseText.innerHTML = 'Release Date: ';
-        releaseText.appendChild(releaseDate);
-        genre.innerHTML = 'Genre: ' + movies[i].genres;
-
-
 
         /* voeg de elementen toe aan de li - de volgorde doet er toe */
         newLi.appendChild(newHeader);
-        newLi.appendChild(newLabel);
         newLi.appendChild(newImg);
-        newLi.appendChild(releaseText);
-        newLi.appendChild(genre);
+
+        console.log(movies[i].genres);
+
+        /* DE DETAILS AANMAKEN EN AAN DE FILM TOEVOEGEN */
+        /* alle details stoppen we in een container zodat ze tegelijk getoond en verborgen kunnen worden */
+        /* ik gebruik als container een definition list */
+        /* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl */
+        let filmDetails = document.createElement("dl");
+        filmDetails.classList.add("details-container");
+
+        /* details aanmaken en vullen */
+        let releaseTextLabel = document.createElement("dt");
+        releaseTextLabel.innerHTML = 'Release Date:';
+        let releaseTextDate = document.createElement("dd");
+        let releaseDate = document.createElement("date");
+        releaseDate.innerHTML = movies[i].release_date;
+        releaseTextDate.appendChild(releaseDate);
+
+        let genreTextLabel = document.createElement("dt");
+        genreTextLabel.innerHTML = 'Genre(s):'
+
+        let genreTextGenres = document.createElement("dd");
+        genreTextGenres.innerHTML = movies[i].genres.join(", ");
+
+        /* details toevoegen aan container */
+        filmDetails.appendChild(releaseTextLabel);
+        filmDetails.appendChild(releaseTextDate);
+        filmDetails.appendChild(genreTextLabel);
+        filmDetails.appendChild(genreTextGenres);
+
+        /* container toevoegen aan film */
+        newLi.appendChild(filmDetails);
 
 
         /* voeg de li toe aan de ul (de slider) */
         deSlider.appendChild(newLi);
 
-        /* voeg de radiobutton toe aan de array met radio buttons */
-        radio_array.push(newInput);
-    }
+        /* de positie van de slider op 0 zetten */
+        positieSlider = 0;
 
-    /* tenslotte de radio button van de eerste film checken */
-    /* daardoor wordt de eerste films dorect getoond */
-    radio_array[0].checked = true;
-    /* de positie van de slider op 0 zetten */
-    positieSlider = 0;
+    }
 }
+
 
 function voegInteractieToeAanDeSlider() {
     /* als eerste de buttons */
@@ -134,17 +137,10 @@ function beweegSlider(richting) {
     var radio_length = radio_array.length;
 
     if (richting == "naarLinks") {
-        // positieSlider--;
-        // if (positieSlider < 0) {
         draaiCarrousel("naarLinks");
-        // }
     } else if (richting == "naarRechts") {
-        // positieSlider++;
-        // if (positieSlider > radio_length - 1) {
         draaiCarrousel("naarRechts");
-        // }
     }
-    // radio_array[positieSlider].checked = true;
 }
 
 
@@ -194,3 +190,4 @@ function draaiCarrousel(richting) {
     /* en als laatste schrijven we de nieuwe hoek van de carrousel terug naar de css */
     deCarrousel.style.setProperty("--carrouselHoek", nieuweCarrouselHoek);
 }
+
