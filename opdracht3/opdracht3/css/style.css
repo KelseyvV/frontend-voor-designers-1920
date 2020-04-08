@@ -99,12 +99,12 @@ img {
 }
 
 .slider li {
-    width: 8em;
+    width: 12em;
 
     /* de li's in het midden van de carrousel zetten */
     position: absolute;
     /* 50% in de helft van de eigen breedte */
-    left: calc(50% - 4em);
+    left: calc(50% - 6em);
     top: 4.5em;
 
     /* een li doet er .5s over om van de ene positie naar de andere te bewegen */
@@ -228,9 +228,9 @@ button#right {
     transform-origin: right center;
 }
 
-/**************/
+/************************/
 /* button focus & hover */
-/**************/
+/************************/
 button:hover {
     background-color: #FFCBD6;
     color: black;
@@ -248,20 +248,42 @@ button#right:focus {
 
 /* Bron: Nicole */
 
-p {
+dl.details-container {
     position: absolute;
-    width: 12em;
-    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     left: 0;
+    top: 0;
+    margin: 0;
+    padding: 1em;
     background: #FFA0A0A0;
     opacity: 0;
     transition: .5s;
-    padding: 7.8em 0em;
+
+    /* om de tekst te centreren - en alles op eiegn regel te zetten */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+li:hover dl.details-container {
+    opacity: 1;
 }
 
 
-p:hover {
-    opacity: 4;
-    text-align: center;
+dt {
+    display: block;
+    font-weight: bold;
+}
+
+dd {
+    display: block;
+    margin: 0;
+}
+
+dd + dt {
+    margin-top: 1em;
 }
 
