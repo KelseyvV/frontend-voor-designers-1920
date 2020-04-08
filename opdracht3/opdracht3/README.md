@@ -131,3 +131,7 @@ Nog een kleine aanpassing: De titels van de films staan nu gecentreerd in hun ve
 Dit is het eindresultaat:
 <img width="832" alt="Schermafbeelding 2020-04-08 om 11 50 07" src="https://user-images.githubusercontent.com/59088506/78770662-2a965180-798f-11ea-95fa-e0b705fb091d.png">
 
+
+
+Conclusie:
+Ik ben tevreden met het eindresultaat. Ik heb veel geleerd tijdens dit vak. Aan het begin had ik totaal niet verwacht dat ik dit zou kunnen maken (ik heb wel heel veel hulp gekregen). Ik begrijp nu beter wat ik doe. Ook vind ik het nu veel leuker om er mee bezig te zijn. 
