@@ -112,3 +112,23 @@ Zo ziet mijn website er nu uit:
 
 Dit is de link naar mijn website:
 https://kelseyvv.github.io/frontend-voor-designers-1920/opdracht3/opdracht3/index.html
+
+
+
+--------------- Huiswerk LES 5: Eindoplevering. --------------
+
+Zoals ik vorige week heb beschreven zou ik graag over een film willen hoveren waardoor er dan details van de film tevoorschijn komen. Ik ben daar mee aan de slag gegaan en met behulp van Sanne ben ik tot het resultaat gekomen.
+
+Wanneer de gebruiker nu over de film hovert, ziet hij het genre en de releasedata. 
+
+
+
+
+
+Sanne heeft de buttons responsive gemaakt, de buttons verschuiven mee met het beeldformaat.
+
+
+
+Nog een kleine aanpassing: De titels van de films staan nu gecentreerd in hun veld. 
+
+Dit is het eindresultaat:
